@@ -1,0 +1,28 @@
+project:
+  title: "Análise de dados em R"
+  type: website
+  output-dir: site/
+  render:
+    - index.qmd
+    - por-que-r.qmd
+
+author:
+  - name: "R. O. Perdiz"
+    orcid: 0000-0002-2333-6549
+    email: ricoperdiz@gmail.com
+    affiliations: PRONAT - UFRR | CBIO - UFRR
+
+date-format: "DD MMM YYYY"
+
+bibliography:
+  - C:/Users/ricop/OneDrive/Documentos/CIENCIA/bibtex/geral.bib
+  - C:/Users/ricop/OneDrive/Documentos/CIENCIA/bibtex/apg.bib
+  - C:/Users/ricop/OneDrive/Documentos/CV/pubs.bib
+
+# csl: associacao-brasileira-de-normas-tecnicas.csl
+
+lang: pt-br
+
+comments:
+  giscus:
+    repo: ricoperdiz/2025_analiseDadosR_SemanaBioCBIO
