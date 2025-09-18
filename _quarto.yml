@@ -31,7 +31,7 @@ website:
       repo-id: "R_kgDOPx6geA"
       category: "Announcements"
       category-id: "DIC_kwDOPx6geM4Cvkqb"
-      mapping: pathname
+      mapping: title
       reactions-enabled: true
       loading: lazy
       input-position: top
