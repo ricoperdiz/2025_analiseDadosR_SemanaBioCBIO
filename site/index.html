@@ -8,7 +8,7 @@
 
 <meta name="author" content="R. O. Perdiz">
 
-<title>Introdução à análise de dados em ambiente R – Análise de dados em R</title>
+<title>Introdução à análise de dados em ambiente R – Introdução à análise de dados em R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,11 +80,13 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./img/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -99,11 +101,11 @@ div.csl-indent {
 <script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -137,13 +139,35 @@ div.csl-indent {
   
 
 
+<meta name="twitter:title" content="Introdução à análise de dados em ambiente R – Introdução à análise de dados em R">
+<meta name="twitter:description" content="Página do minicurso de introdução (super condensada) à análise de dados em ambiente R, preparada especialmente para a XXI Semana de Biologia do Centro de Estudos da Biodiversidade da Universidade Federal de Roraima, Brasil.">
+<meta name="twitter:image" content="https://analisercbioufrr.netlify.app/img/tcard.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/favicon.ico" alt="" class="navbar-logo light-content">
+    <img src="./img/favicon.ico" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Introdução à análise de dados em R</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Procurar"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -159,7 +183,7 @@ div.csl-indent {
   <li><a href="#concatenando-elementos-com-a-função-c" id="toc-concatenando-elementos-com-a-função-c" class="nav-link" data-scroll-target="#concatenando-elementos-com-a-função-c">Concatenando elementos com a função <code>c()</code></a></li>
   <li><a href="#criar-tabelas-com-a-função-data.frame" id="toc-criar-tabelas-com-a-função-data.frame" class="nav-link" data-scroll-target="#criar-tabelas-com-a-função-data.frame">Criar tabelas com a função <code>data.frame()</code></a></li>
   </ul></li>
-  <li><a href="#pacotes-de-r" id="toc-pacotes-de-r" class="nav-link" data-scroll-target="#pacotes-de-r">Pacotes de R</a></li>
+  <li><a href="#sec-pacotes" id="toc-sec-pacotes" class="nav-link" data-scroll-target="#sec-pacotes">Pacotes de R</a></li>
   <li><a href="#importando-dados" id="toc-importando-dados" class="nav-link" data-scroll-target="#importando-dados">🧳 Importando dados 🎲</a>
   <ul class="collapse">
   <li><a href="#sec-inspecaobasica" id="toc-sec-inspecaobasica" class="nav-link" data-scroll-target="#sec-inspecaobasica">Inspeção básica - <code>head()</code>, <code>tail()</code>, <code>str()</code>, <code>summary()</code> e <code>glimpse()</code></a></li>
@@ -195,7 +219,7 @@ div.csl-indent {
   <li><a href="#exercício-prático" id="toc-exercício-prático" class="nav-link" data-scroll-target="#exercício-prático">Exercício prático</a></li>
   <li><a href="#referências-citadas" id="toc-referências-citadas" class="nav-link" data-scroll-target="#referências-citadas">Referências citadas</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Ver o código fonte</a></li><li><a href="https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -238,6 +262,26 @@ div.csl-indent {
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Informes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Última atualização: 2025-09-18.</p>
+<p>Código fonte: <a href="https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO" class="uri">https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO</a>.</p>
+<section id="adições" class="level3">
+<h3 class="anchored" data-anchor-id="adições">Adições</h3>
+<ul>
+<li>Inserção do <code>ggplot2</code> na <a href="#sec-pacotes" class="quarto-xref">Seção&nbsp;4</a>.</li>
+</ul>
+</section>
+</div>
+</div>
 <section id="apresentação" class="level2">
 <h2 class="anchored" data-anchor-id="apresentação">Apresentação</h2>
 <!-- Apresentação & por que R? → 15 min -->
@@ -379,9 +423,9 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGFkb3NfZXhlbXBsbyJ9
 </div>
 </section>
 </section>
-<section id="pacotes-de-r" class="level2">
-<h2 class="anchored" data-anchor-id="pacotes-de-r">Pacotes de R</h2>
-<p>Pacotes em R são conjuntos de funções ou conjuntos de dados. Utilizamos a função <code>install.packages()</code> para instalar esses pacotes. Neste curso, faremos uso dos pacotes <code>dplyr</code> <span class="citation" data-cites="dplyr">(<a href="#ref-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span> e <code>palmerpenguins</code> <span class="citation" data-cites="Horstetal2020">(<a href="#ref-Horstetal2020" role="doc-biblioref">Horst, Hill, e Gorman 2020</a>)</span>. Primeiro, instalamos e carregamos o pacote.</p>
+<section id="sec-pacotes" class="level2">
+<h2 class="anchored" data-anchor-id="sec-pacotes">Pacotes de R</h2>
+<p>Pacotes em R são conjuntos de funções ou conjuntos de dados. Utilizamos a função <code>install.packages()</code> para instalar esses pacotes. Neste curso, faremos uso dos pacotes <code>dplyr</code> <span class="citation" data-cites="dplyr">(<a href="#ref-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>, <code>palmerpenguins</code> <span class="citation" data-cites="Horstetal2020">(<a href="#ref-Horstetal2020" role="doc-biblioref">Horst, Hill, e Gorman 2020</a>)</span>, e <code>ggplot2</code> <span class="citation" data-cites="Wickham2016">(<a href="#ref-Wickham2016" role="doc-biblioref">Wickham 2016</a>)</span>. Primeiro, devemos instalar os pacotes. Em seguida, carregamos os pacotes de interesse para nossos objetivos.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -397,14 +441,16 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGFkb3NfZXhlbXBsbyJ9
 </div>
 </div>
 <p>O pacote <code>dplyr</code> inaugurou uma nova sintaxe em R (ver a postagem <a href="https://www.ricardoperdiz.com/blog/2020-04-tidyverse/">O que é o Tidyverse</a> para mais informações), que permite a manipulação de dados tabulares de maneira mais prática e com mais clareza ao usuário.</p>
+<p>O <code>ggplot2</code> <span class="citation" data-cites="Wickham2016">(<a href="#ref-Wickham2016" role="doc-biblioref">Wickham 2016</a>)</span> é a ferramenta de visualização mais popular em R e será utilizada neste minicurso. Ele segue uma “gramática de gráficos”, em que você constrói o gráfico em camadas.</p>
 <p>Por sua vez, o pacote <code>palmerpenguins</code> <span class="citation" data-cites="Horstetal2020">(<a href="#ref-Horstetal2020" role="doc-biblioref">Horst, Hill, e Gorman 2020</a>)</span> oferece um conjunto de dados referente à morfologia de três espécies de pinguins que ocorrem no [arquipélago de Palmer](https://en.wikipedia.org/wiki/Palmer_Archipelagono noroeste da <a href="https://pt.wikipedia.org/wiki/Pen%C3%ADnsula_Ant%C3%A1rtica">península Antártica</a>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"dplyr"</span>, <span class="st">"palmerpenguins"</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"dplyr"</span>, <span class="st">"palmerpenguins"</span>, <span class="st">"ggplot2"</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Agora carregaremos o pacote por meio da função <code>library()</code>. Devemos inserir o nome do pacote que queremos carregar entre os parênteses, com ou sem aspas.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"palmerpenguins"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"palmerpenguins"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <hr>
 </section>
@@ -839,9 +885,9 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicGluZ3VpbnMgfD4gc2VsZWN0
 <section id="visualização-de-dados" class="level2">
 <h2 class="anchored" data-anchor-id="visualização-de-dados">📈 Visualização de dados 📊</h2>
 <!-- Visualização (ggplot2) → 40 min -->
-<p>O <code>ggplot2</code> <span class="citation" data-cites="Wickham2016">(<a href="#ref-Wickham2016" role="doc-biblioref">Wickham 2016</a>)</span> é a ferramenta de visualização mais popular em R e será utilizada neste minicurso. Ele segue uma “gramática de gráficos”, em que você constrói o gráfico em camadas .</p>
+<p>O pacote <code>ggplot2</code> <span class="citation" data-cites="Wickham2016">(<a href="#ref-Wickham2016" role="doc-biblioref">Wickham 2016</a>)</span> uma “gramática de gráficos”, em que você constrói o gráfico em camadas. As funções básicas do pacote, nesta ordem, são:</p>
 <ul>
-<li><p><code>ggplot()</code>: Define os dados e a estética (<code>aes</code>).</p></li>
+<li><p><code>ggplot()</code>: Define os dados e a estética (<code>aes()</code>).</p></li>
 <li><p><code>geom_*</code>: Adiciona as camadas geométricas (pontos: <code>geom_point()</code>; barras: <code>geom_col()</code>; linhas: <code>geom_line()</code>).</p></li>
 </ul>
 <p>Façamos um histograma do comprimento do bico dos pinguins:</p>
@@ -1099,7 +1145,7 @@ window._ojs.runtime.interpretFromScriptTags();
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/analisercbioufrr\.netlify\.app\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1460,4 +1506,4 @@ window._ojs.runtime.interpretFromScriptTags();
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Ver o código fonte</a></li><li><a href="https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>
