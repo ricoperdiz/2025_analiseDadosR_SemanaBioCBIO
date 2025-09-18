@@ -6,6 +6,43 @@ project:
     - index.qmd
     - por-que-r.qmd
 
+website:
+  title: "Introdução à análise de dados em R"
+  favicon: img/favicon.ico
+  description: "Página do minicurso de introdução (super condensada) à análise de dados em ambiente R, preparada especialmente para a XXI Semana de Biologia do Centro de Estudos da Biodiversidade da Universidade Federal de Roraima, Brasil."
+  twitter-card:
+    image: img/tcard.png
+    card-style: "summary_large_image"
+    description: "Página do minicurso de introdução (super condensada) à análise de dados em ambiente R, preparada especialmente para a XXI Semana de Biologia do Centro de Estudos da Biodiversidade da Universidade Federal de Roraima, Brasil."
+  navbar:
+    logo: img/favicon.ico
+    href: https://analisercbioufrr.netlify.app/
+  site-url: "https://analisercbioufrr.netlify.app/"
+  issue-url: https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO/issues
+  repo-url: https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO
+  repo-actions: [edit, source, issue]
+  open-graph:
+    site-name: "Introdução à análise de dados em R"
+    description: "Minicurso de introdução (super condensada) à análise de dados em ambiente R, preparada especialmente para a XXI Semana de Biologia do Centro de Estudos da Biodiversidade da Universidade Federal de Roraima, Brasil."
+    image: img/tcard.png
+  # comments:
+  #   giscus:
+  #     repo: ricoperdiz/2025_analiseDadosR_SemanaBioCBIO
+  #     repo-id: "R_kgDOPx6geA"
+  #     category: "Announcements"
+  #     category-id: "DIC_kwDOPx6geM4Cvkqb"
+  #     mapping: pathname
+  #     reactions-enabled: true
+  #     loading: lazy
+  #     input-position: top
+  #     theme:
+  #       light: "light"
+  #       dark: "purple_dark"
+  #     language: pt
+
+language:
+  search-box-placeholder: Busque aqui
+
 author:
   - name: "R. O. Perdiz"
     orcid: 0000-0002-2333-6549
@@ -23,6 +60,3 @@ bibliography:
 
 lang: pt-br
 
-comments:
-  giscus:
-    repo: ricoperdiz/2025_analiseDadosR_SemanaBioCBIO

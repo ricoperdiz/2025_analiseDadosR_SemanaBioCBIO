@@ -23,9 +23,20 @@ webr:
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
+::: {.callout-note}
+## Informes
 
+Última atualização: `r lubridate::today()`.  
 
+Código fonte: <https://github.com/ricoperdiz/2025_analiseDadosR_SemanaBioCBIO>.  
 
+### Adições
+
++ Inserção do `ggplot2` na @sec-pacotes.  
+
++ Inserção de uma seção curta sobre a função de ajuda do R (== `?`).  
+
+:::
 
 ## Apresentação
 
@@ -146,12 +157,13 @@ Podemos ver o conteúdo de `dados_exemplo` também simplesmente executando o nom
 dados_exemplo
 ```
 
-## Pacotes de R
+## Pacotes de R {#sec-pacotes}
 
 Pacotes em R são conjuntos de funções ou conjuntos de dados.
 Utilizamos a função `install.packages()` para instalar esses pacotes.
-Neste curso, faremos uso dos pacotes `dplyr` [@dplyr] e `palmerpenguins` [@Horstetal2020].
-Primeiro, instalamos e carregamos o pacote.  
+Neste curso, faremos uso dos pacotes `dplyr` [@dplyr], `palmerpenguins` [@Horstetal2020], e `ggplot2` [@Wickham2016].
+Primeiro, devemos instalar os pacotes.
+Em seguida, carregamos os pacotes de interesse para nossos objetivos.  
 
 ::: {.callout-important}
 ### `install.packages()` VS. `library()`
@@ -164,20 +176,25 @@ A função `install.packages()` é como instalar um aplicativo no seu celular: v
 
 O pacote `dplyr` inaugurou uma nova sintaxe em R (ver a postagem [O que é o Tidyverse](https://www.ricardoperdiz.com/blog/2020-04-tidyverse/) para mais informações), que permite a manipulação de dados tabulares de maneira mais prática e com mais clareza ao usuário.  
 
+O `ggplot2` [@Wickham2016] é a ferramenta de visualização mais popular em R e será utilizada neste minicurso.
+Ele segue uma "gramática de gráficos", em que você constrói o gráfico em camadas.  
+
 Por sua vez, o pacote `palmerpenguins` [@Horstetal2020] oferece um conjunto de dados referente à morfologia de três espécies de pinguins que ocorrem no [arquipélago de Palmer](https://en.wikipedia.org/wiki/Palmer_Archipelagono noroeste da [península Antártica](https://pt.wikipedia.org/wiki/Pen%C3%ADnsula_Ant%C3%A1rtica).  
 
 
 ```{r}
 #| eval: false
-install.packages(c("dplyr", "palmerpenguins"))
+install.packages(c("dplyr", "palmerpenguins", "ggplot2"))
 ```
 
-Agora carregaremos o pacote por meio da função `library()`. Devemos inserir o nome do pacote que queremos carregar entre os parênteses, com ou sem aspas.
+Agora carregaremos o pacote por meio da função `library()`.
+Devemos inserir o nome do pacote que queremos carregar entre os parênteses, com ou sem aspas.  
 
 ```{r}
 #| eval: false
 library("dplyr")
 library("palmerpenguins")
+library("ggplot2")
 ```
 
 ------------------------------------------------------------------------
@@ -220,7 +237,7 @@ O R possui diferentes funções para ler tabelas:
 
 + `read.csv()` é uma forma simplificada de read.table() já configurada para ler arquivos separados por vírgula (,) e com ponto (.) como separador decimal.
 
-`read.table()` é mais flexível, permitindo ajustar separador (`sep`) e símbolo decimal (`dec`).  
++ `read.table()` é mais flexível, permitindo ajustar separador (`sep`) e símbolo decimal (`dec`).  
 :::
 
 
@@ -271,7 +288,6 @@ Precisamos limpá-los.
 
 + **Tipos de colunas:** Garantindo que cada coluna tenha o tipo de dado correto (numérico, texto, etc.).  
 
-
 ### Dados ausentes
 
 ```{webr}
@@ -287,22 +303,27 @@ Para remover todas as linhas que apresentarem valoes ausentes, podemos utilizar 
 dados_sem_na <- na.omit(pinguins)
 ```
 
+Agora checamos os dados após a remoção das linhas com dados ausentes:
+
 ```{webr}
 glimpse(dados_sem_na)
 ```
 
+### Renomear colunas
+
+Podemos renomear colunas utilizando a função `dplyr::rename()`:
 
 ```{webr}
-# Renomeando colunas para nomes mais claros
+# Renomeando colunas para nomes em portugues
 pinguins_renomeados <- 
-  pinguins |>
   rename(
+    pinguins,
     barbatana_comprimento_mm = flipper_length_mm,
     massa_corporal_g = body_mass_g
   )
 ```
 
-Veja agora o resultado da renomeação das colunas
+Veja agora o resultado da renomeação das colunas:
 
 ```{webr}
 glimpse(pinguins_renomeados)
@@ -322,7 +343,22 @@ pinguins$body_mass_g <- as.numeric(pinguins$body_mass_g)
 glimpse(pinguins) # Agora veja que a coluna está como 'numérica'
 ```
 
+::: {.callout-tip}
+### Ajuda para entender quais são os argumentos de uma função
 
+O R possui uma função, chamada ajuda "*help*", que deve ser utilizada para obtermos informação sobre o que uma função executa.
+Para obter essa ajuda, devemos pegar a função e executá-la da seguinte forma:
+
+```{r}
+#| eval: false
+#| echo: true
+?read.table
+?na.omit
+?c
+```
+
+Ao utilizar o `?` junto ao nome de uma função, sem os parênteses, uma janela se abre contendo várias informações úteis referentes ao que aquela determinada função faz. Teste aí!
+:::
 
 ## Prática I: o básico na ponta dos dedos
 
@@ -368,7 +404,7 @@ pinguins |>
   glimpse()
 ```
 
-**Reparem que o resultado é o mesmo apresentado na seção @sec-inspecaobasica.**  
+**Reparem que o resultado é o mesmo apresentado na @sec-inspecaobasica.**  
 
 O verdadeiro poder do *pipe* `|>`  aparece quando encadeamos múltiplas operações em sequência.
 Isso nos permite realizar uma análise completa em poucas linhas de código, mantendo a lógica clara.  
@@ -548,10 +584,10 @@ pinguins |> filter(species == "Adelia")
 
 <!-- Visualização (ggplot2) → 40 min -->
 
-O `ggplot2` [@Wickham2016] é a ferramenta de visualização mais popular em R e será utilizada neste minicurso.
-Ele segue uma "gramática de gráficos", em que você constrói o gráfico em camadas .
+O pacote `ggplot2` [@Wickham2016] uma "gramática de gráficos", em que você constrói o gráfico em camadas.
+As funções básicas do pacote, nesta ordem, são:
 
-+ `ggplot()`: Define os dados e a estética (`aes`).  
++ `ggplot()`: Define os dados e a estética (`aes()`).  
 
 + `geom_*`: Adiciona as camadas geométricas (pontos: `geom_point()`; barras: `geom_col()`; linhas: `geom_line()`).
 
@@ -654,16 +690,10 @@ pinguins |>
 
 > Filtre apenas os pinguins da espécie `Adelie` e faça um gráfico de dispersão entre `flipper_length_mm` e `body_mass_g`. Use cores diferentes para cada ilha.  
 
-```{r}
-#| include: false
-#| eval: false
-pinguins |>
-  filter(species == "Adelie") |> 
-  ggplot(aes(x = `flipper_length_mm`, y = `body_mass_g`, color = island)) +
-  geom_point()
 
+```{webr}
+# Inclua seu codigo aqui
 ```
-
 
 ## Conclusão e próximos passos
 
@@ -685,8 +715,7 @@ Vimos (quase) o ciclo completo da análise de dados: importação, limpeza, tran
 
 Tente aplicar o que aprendeu em um novo conjunto de dados.  
 
-```{r}
-#| eval: false
+```{webr}
 # Carregue um novo conjunto de dados
 # dados_projeto <- read.table("caminho/para/seu/arquivo.csv")
 
@@ -699,3 +728,20 @@ Tente aplicar o que aprendeu em um novo conjunto de dados.
 
 ::: {#refs}
 :::
+
+<script src="https://giscus.app/client.js"
+        data-repo="ricoperdiz/2025_analiseDadosR_SemanaBioCBIO"
+        data-repo-id="R_kgDOPx6geA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPx6geM4Cvkqb"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="purple_dark"
+        data-lang="pt"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
