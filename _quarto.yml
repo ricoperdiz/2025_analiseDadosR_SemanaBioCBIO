@@ -25,20 +25,20 @@ website:
     site-name: "Introdução à análise de dados em R"
     description: "Minicurso de introdução (super condensada) à análise de dados em ambiente R, preparada especialmente para a XXI Semana de Biologia do Centro de Estudos da Biodiversidade da Universidade Federal de Roraima, Brasil."
     image: img/tcard.png
-  # comments:
-  #   giscus:
-  #     repo: ricoperdiz/2025_analiseDadosR_SemanaBioCBIO
-  #     repo-id: "R_kgDOPx6geA"
-  #     category: "Announcements"
-  #     category-id: "DIC_kwDOPx6geM4Cvkqb"
-  #     mapping: pathname
-  #     reactions-enabled: true
-  #     loading: lazy
-  #     input-position: top
-  #     theme:
-  #       light: "light"
-  #       dark: "purple_dark"
-  #     language: pt
+  comments:
+    giscus:
+      repo: ricoperdiz/2025_analiseDadosR_SemanaBioCBIO
+      repo-id: "R_kgDOPx6geA"
+      category: "Announcements"
+      category-id: "DIC_kwDOPx6geM4Cvkqb"
+      mapping: pathname
+      reactions-enabled: true
+      loading: lazy
+      input-position: top
+      theme:
+        light: "light"
+        dark: "purple_dark"
+      language: pt
 
 language:
   search-box-placeholder: Busque aqui
