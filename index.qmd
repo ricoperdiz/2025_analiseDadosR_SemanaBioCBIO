@@ -59,7 +59,7 @@ Oferecemos então uma introdução à importação de dados, checagem e transfor
 #| fig-cap: "Ciclo da análise de dados. Neste  curso, não abordaremos a modelagem de dados. Fonte: Curso-R, disponível em <https://curso-r.github.io/livro-material/assets/img/manipulacao/ciclo-ciencia-de-dados.png>."
 #| echo: false
 knitr::include_graphics(
-  "https://livro.curso-r.com/assets/img/manipulacao/ciclo-ciencia-de-dados.png"
+  "img/ciclo-ciencia-de-dados.png"
 )
 ```
 
