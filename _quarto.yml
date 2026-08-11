@@ -30,8 +30,9 @@ website:
       repo: ricoperdiz/2025_analiseDadosR_SemanaBioCBIO
       repo-id: "R_kgDOPx6geA"
       category: "Announcements"
-      category-id: "DIC_kwDOPx6geM4Cvkqb"
-      mapping: title
+      category-id: "DIC_kwDOPx6geM4Cvkqa"
+      data-strict: 1
+      mapping: pathname
       reactions-enabled: true
       loading: lazy
       input-position: top

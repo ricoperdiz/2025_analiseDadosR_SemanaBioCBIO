@@ -6,6 +6,9 @@ date: "17 Sep 2025"
 format:
   live-html:
     toc: true
+    theme: 
+      light: cosmo
+      dark: solar
 
 resources:
   - penguins.csv
@@ -53,7 +56,7 @@ Oferecemos então uma introdução à importação de dados, checagem e transfor
 
 ```{r}
 #| label: fig-analisedados
-#| fig-cap: "Ciclo da análise de dados. Neste  curso, não abordaremos a modelagem de dados. Fonte: Curso-R, disponível em <https://livro.curso-r.com/assets/img/manipulacao/ciclo-ciencia-de-dados.png>."
+#| fig-cap: "Ciclo da análise de dados. Neste  curso, não abordaremos a modelagem de dados. Fonte: Curso-R, disponível em <https://curso-r.github.io/livro-material/assets/img/manipulacao/ciclo-ciencia-de-dados.png>."
 #| echo: false
 knitr::include_graphics(
   "https://livro.curso-r.com/assets/img/manipulacao/ciclo-ciencia-de-dados.png"
